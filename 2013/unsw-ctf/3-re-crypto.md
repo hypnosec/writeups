@@ -29,7 +29,7 @@ Wasn't very useful.
 
 *A couple of hours passed...*
 
-@cyphar then did `cat rope`.  Turns out, the key is not displayed by strings, but only by `cat`.
+@cyphar then did `cat rope`.  Turns out, the key is not displayed by strings, but only by `cat`. The reason is that each character in the strings is followed by several null terminators. This means that `strings` was unable to find it.
 
 ```
 $ cat ./rope
