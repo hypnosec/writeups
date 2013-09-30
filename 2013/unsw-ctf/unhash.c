@@ -53,7 +53,7 @@ uint32_t from_hex(char a) {
 }
 
 /* converts 0xff to int */
-uint32_t tonibble(char a, char b) {
+uint32_t to_byte(char a, char b) {
 	return from_hex(a) << 4 | from_hex(b);
 }
 
@@ -74,9 +74,9 @@ int main(void) {
 	for(i = 0; i < 16; i++)
 		original.bytes[i] = 0;
 
-	/* copy over the chars in nibbles */
+	/* copy over the chars in bytes */
 	for(i = 0; i < 32; i+=2)
-		original.bytes[i/2] = tonibble(inp[i], inp[i+1]);
+		original.bytes[i/2] = to_byte(inp[i], inp[i+1]);
 
 	/* The "exploit" in the algorithm: an input of
 	 * <= 8 chars will not be correctly "compressed"
