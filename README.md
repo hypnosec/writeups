@@ -1,7 +1,7 @@
 writeups
 ========
 
-These are some assorted writeups from all of the competitions `@infosec-au`, `@auscompgeek`, `@cyphar` and `leon` have taken part in.
+These are some assorted writeups from all of the competitions `@infosec-au`, `@auscompgeek`, `@cyphar` and `rfl` have taken part in.
 
 License
 -------
