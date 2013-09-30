@@ -42,6 +42,15 @@ Well played guys.  Well played. After all, `cat`s like to play with `strings`...
 
 After the CTF, I heard that IDA could've shown you this as well.  *Note to self: install IDA next time.*
 
+**Update**: Specifically, each character was followed by 3 nulls.  Yup, UTF-32 LE:
+
+```
+$ strings -e L rope
+DEBUG MODE: The key is: 1KsRezs4u8ksj6T26DMgvjjNsLjMmcH69s
+```
+
+This, my friends, is the definition of evil.  Who on Earth actually uses UTF-32?
+
 ### Hash ###
 
 This question was very interesting. We were given some source code which was a broken hashing function. We were told that the password we needed to extract was 8 characters long and random.
