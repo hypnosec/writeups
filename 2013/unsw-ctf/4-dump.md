@@ -23,7 +23,7 @@ So we submitted that.  :win:
 There was quite a bit of talk about this.  However, there were two main points that came up:
 
 * `iexplore.exe` spawned a `cmd.exe`, which is odd behaviour for IE.
-* rfl found `vol malfind` only showed entries for the offending `iexplore.exe` process.
+* rfl and @cyphar found `vol malfind` only showed entries for the offending `iexplore.exe` process.
 
 ### Kits ###
 
