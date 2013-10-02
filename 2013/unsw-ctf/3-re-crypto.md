@@ -67,9 +67,9 @@ The real vulnerability in this function was points 3 and 4. After many pages and
 
 Example 8-character password block:
 ```
-+-------------------------------+
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 |a|b|c|d|e|f|g|h| | | | | | | | |
-+-+-+-+-------------------------+
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 ```
 
 Broken into words:
@@ -101,9 +101,9 @@ The problem with this system is that c and d are full of 0s if the input was <= 
 +-+-+-+-+--+--+---+---+
 |a|b| | |a'|b'|a''|b''|
 +-+-+-+-+--+--+---+---+
+```
 
 Whoops.
-```
 
 The hashing then compresses the above 8-word block into a 4-word block. This is the basis of most hashing algorithms, but there is a flaw which was compounded by the above flaw.
 The actual compressing was essentially just an xor of the above values. The second and fourth words of the current hash block are xored with the current word being inserted.
@@ -113,14 +113,15 @@ Hashing, in steps:
   +--------+--------+-----+-----+
 1 |   x    |        |     |     |
 2 |   y    |   x    |     |     |
-3 |   x'   |   y    |  x  |     |
-4 |   y'   |   x'   |  y  |  x  |
-5 |   x'   |   y'   |  x' |  y  |
+3 |   x    |   y    |  x  |     |
+4 |   y    |   x    |  y  |  x  |
+5 |   x'   |   y    |  x  |  y  |
 6 |   y'   |   x'   |  y' |  x' |
 7 |x^x'^x''|   y'   |  x' |  y' |
 8 |y^y'^y''|x^x'^x''|  y' |  x' |
   +--------+--------+-----+-----+
 ```
 
-The compression is broken in steps 5 and 6. In steps 5 and 6, two of the values being xored are identical, producing the third value. All we now needed was to create a program to reverse rotate the last two octets of the hash, and we were done.
+The compression is broken in steps 5 and 6. Because of the zero-padding, steps 3 and 4 just push the same words as steps 1 and 2. This results in two of the values being xored becoming identical in steps 5 and 6, producing a rotated value (with no effective xor). All we now needed was to create a program to reverse rotate the last two octets of the hash, and we were done.
+
 @cyphar's final solution is in `unhash.c`.
