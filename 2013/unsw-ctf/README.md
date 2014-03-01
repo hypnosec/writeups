@@ -1,7 +1,9 @@
 Hypnosec's UNSW CTF writeups
-----------------------------
+============================
 
 Here you will find some writeups for the UNSW CTF for team Hypnosec. Enjoy.
+
+Thanks to the UNSW CTF organisers for such a great time!
 
 Key moments according to @infosec-au:
 
