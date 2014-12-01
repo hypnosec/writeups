@@ -153,6 +153,15 @@ blob 35^@9447{IM_SITTING_ON_A_PILE_OF_GOLD}
 
 Boom! So the flag is `9447{IM_SITTING_ON_A_PILE_OF_GOLD}`.
 
+### Notes ###
+* You couldn't clone the repo over http (or at least, we couldn't -- some other
+  teams managed to), hence all of this dark magic was necessary.
+* @cyphar remembered how horrible git's source code is while trying to reverse
+  engineer `git cat-file`, so that we didn't have to download the objects and
+  defile an innocent git repo (he failed and got PTSD from it).
+* You should switch to mercurial if you intend to hack on your version control
+  system, while retaining your sanity and faith in humanity.
+
 ### Mitigations ###
 If you don't want people to read the history of your git repo, don't make it
 publically accessible. And no, turning indexes off doesn't make any difference
