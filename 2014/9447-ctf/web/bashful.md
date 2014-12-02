@@ -96,6 +96,6 @@ Hmm... will Bitcoin die out though?
 
 ### Notes ###
 It may be easier (hint: it *is*) to `wget` the entire `.git` directory, like
-[mathiasbynens did](/ctfs/write-ups/tree/master/9447-ctf-2014/bashful).
+[mathiasbynens did](https://github.com/ctfs/write-ups/tree/master/9447-ctf-2014/bashful).
 I outline this process as this is along the lines of the original intended
 solution (before they realised it was impossible).
