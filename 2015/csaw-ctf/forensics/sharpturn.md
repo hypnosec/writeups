@@ -17,7 +17,7 @@ It turns out this repo is actually corrupted.
 NB: a bare repo can be cloned to construct a non-bare repo with a working tree.
 
 ### Tools needed
-* `git`
+* `git` <sup>1</sup>
 * a text processing tool
 
 ### Tips and background
@@ -254,3 +254,6 @@ Patching the final blob, this should give us the correct flag!
 
 ### Notes ###
 Turns out `git fsck` is extremely useful for checking that a Git repo is valid.
+
+<sup>1</sup> Whilst I say `git` is required, it is possible to do this challenge
+without `git`, but it would be extremely painful. :stuck_out_tongue_winking_eye:
