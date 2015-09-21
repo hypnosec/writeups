@@ -91,7 +91,7 @@ So `validate()` takes a username and passhash, fetches the hash from the
 database, then compares each digit in the hash.
 
 Hang on a second.  There's a call to `usleep()` in the loop.
-Sounds like we'll be performing a side-channel attack to get the hash.
+This is trivially vulnerable to a timing attack.
 
 An important thing to note is that the length of the hashes are checked first.
 When performing our attack, we'll have to pad our hash.
@@ -127,9 +127,9 @@ username of `%`.
 
 > ## Username: \~~FLAG~~ is not available
 
-Now that we have a username, let's perform our side-channel attack.
-In this case, our side-channel is the time it takes to respond to our HTTP
-request, so attacks may be unreliable.  I try to mitigate this in various ways.
+Now that we have a username, let's perform our timing attack.
+In this case, the timing is the time it takes to respond to our HTTP request,
+so attacks may be unreliable.  I try to mitigate this in various ways.
 
 ```python
 #!/usr/bin/env python3
@@ -144,10 +144,8 @@ known = ''
 
 def try_pw(p):
     data = {'username': username, 'password': p}
-    time_start = time.time()
     r = requests.post('http://54.175.3.248:8089/premium.php', data=data)
-    time_end = time.time()
-    return time_end - time_start, r.text
+    return r.elapsed.total_seconds(), r.text
 
 def fill_pw(p):
     return p.ljust(32, '0')
@@ -217,7 +215,7 @@ Our flag is `flag{gr0wth__h4ck!ng!1!1!}`.
 (Note: CSAW CTF's flags are case-insensitive.)
 
 An interesting thing to note is that this hash has a lot of trailing zeros.
-I wonder whether this hash actually matches a printable string.
+It turns out that the challenge was modified to only check the first 10 digits.
 
 ### Easter eggs
 ```
