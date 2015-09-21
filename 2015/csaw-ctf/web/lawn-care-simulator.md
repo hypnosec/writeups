@@ -45,7 +45,6 @@ Let's take a look at these PHP files.
 
 > `premium.php`:
 ```php
-<?php
 # [snip]
     require_once 'validate_pass.php';
     require_once 'flag.php';
@@ -65,7 +64,6 @@ Guess we know where to find the flag now.
 
 > `validate_pass.php`:
 ```php
-<?
 function validate($user, $pass) {
     # [snip]
     $user = mysql_real_escape_string($user);
@@ -98,7 +96,6 @@ When performing our attack, we'll have to pad our hash.
 
 > `sign_up.php`:
 ```php
-<?
 # [snip]
     $user = mysql_real_escape_string($_POST['username']);
     // check to see if the username is available
