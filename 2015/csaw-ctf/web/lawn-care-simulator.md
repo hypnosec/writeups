@@ -228,3 +228,11 @@ aa3025b I think I'll just put mah source code riiiiighhhht here. Perfectly safe 
 * Don't use the SQL `LIKE` operator unless you really mean it.
 * `sleep`ing is not a valid way of preventing brute-force attacks.
   :stuck_out_tongue_winking_eye:
+
+### Notes
+It turns out PHP returns `NULL` for a lot of things, and `0 == NULL` in PHP.
+Specifically, indexing `NULL` gives you `NULL` (what!?), and `strlen(NULL)`
+is also `NULL`.  [s0lst1ce][] abused this and got the flag by sending an empty
+username and password.
+
+[s0lst1ce]: //s0lst1ce.github.io/web%20hacking/csaw%20quals%202015/writeups/2015/09/20/csaw-quals-writeup-lawncare-sim/
