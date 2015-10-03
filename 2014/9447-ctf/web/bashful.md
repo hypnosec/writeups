@@ -47,7 +47,7 @@ all the objects are gone.  Navigate to the `pack` subdirectory however, and we
 find a pack file named `pack-deff83d57714493c6d317394f3542da8e396f887.pack`.
 We can download this and run `git unpack-objects` in a git repo:
 
-```bash
+```console
 $ cd $(mktemp -d)
 $ git init
 Initialized empty Git repository in [temporary directory]
@@ -58,7 +58,7 @@ Unpacking objects: 100% (4/4), done.
 Now that we have all the objects in our git repo, we can now find the blob
 object.  I was lazy, so I just decompressed _all_ the objects:
 
-```
+```console
 $ cd .git/objects
 $ for file in ??/*; do (printf "\x1f\x8b\x08\x00\x00\x00\x00\x00"; cat $file) | gunzip | cat -v; done
 gzip: stdin: unexpected end of file

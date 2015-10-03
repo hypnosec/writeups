@@ -27,7 +27,7 @@ that there's a `git` repo at `.git`.
 ### Exploitation
 Let's clone the git repo:
 
-```
+```console
 $ git clone http://54.175.3.248:8089/.git/ lawn-care-sim
 Cloning into 'lawn-care-sim'...
 Done.
@@ -35,7 +35,7 @@ Done.
 
 ... that was simpler than I expected.
 
-```
+```console
 $ cd lawn-care-sim
 $ ls
 ___HINT___  index.html  jobs.html  js  premium.php  sign_up.php  validate_pass.php
@@ -215,7 +215,7 @@ An interesting thing to note is that this hash has a lot of trailing zeros.
 It turns out that the challenge was modified to only check the first 10 digits.
 
 ### Easter eggs
-```
+```console
 $ cat ___HINT___
 Before planting grass, add compost or other soil amendment to the soil to improve its ability to hold water.
 $ git log --oneline
