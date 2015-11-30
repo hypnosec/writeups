@@ -2,7 +2,7 @@
 Writeup by @auscompgeek.
 
 ### tl;dr
-* Translate main.dc into a known programming language.
+* Translate main.dc into a sane and measured programming language.
 * Optimise some functions by working out what they actually do.
 * Avoid hitting the stack limit, somehow.
 
@@ -14,19 +14,22 @@ Writeup by @auscompgeek.
 >
 > but only if you submit '9447{\`dankcode main.dc`}' to this task. 
 
-* [main.dc](https://github.com/ctfs/write-ups-2015/blob/master/9447-ctf-2015/reversing/danklang/main-5c146bdc240527609ffcf236d04be83b.dc)
+* [main.dc][] - md5 5c146bdc240527609ffcf236d04be83b
 
-This challenge involved a made-up programming language.
+This challenge involves a subset of a (joke?) language called [greentext][].
 
 **NB**: You should have a good understanding of maths, programming, and Python
 before reading this.
 
+[main.dc]: https://github.com/ctfs/write-ups-2015/blob/master/9447-ctf-2015/reversing/danklang/main-5c146bdc240527609ffcf236d04be83b.dc
+[greentext]: https://github.com/jfeng41/greentext
+
 ### Translation
 
-The constructs in danklang are fairly basic. Most of the operators used are the
+The constructs used in main.dc are fairly basic. Most operators are the
 same as any C-based language's operators with the exception of `is` and `isn't`.
 
-For brevity, here is a sed script that mostly converts dankcode to Python:
+For brevity, here is a sed script that mostly converts main.dc to Python:
 ```sed
 #!/bin/sed -f
 s/>wewlad \(.*\)/def \1:/
