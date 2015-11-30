@@ -252,7 +252,7 @@ look familiar to you as calculating the *n*th Fibonacci number. Almost.
 
 This function actually calculates the *n*th Fibonacci number, modulo 987654321.
 
-Again, there are two things we could do:
+There are three things we could do this time:
 
 * Precompute the Fibonacci sequence (mod 987654321) up to 13379446.
   (The largest number that `brotherman()` will get is 13379446.)
