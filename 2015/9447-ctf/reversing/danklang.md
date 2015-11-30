@@ -12,7 +12,7 @@ Writeup by @auscompgeek.
 > you have been visited by the reversing task of the 9447 ctf<br/>
 > good flags and points will come to you
 >
-> but only if you submit '9447{\`dankcode main.dc`}' to this task. 
+> but only if you submit '9447{\`dankcode main.dc`}' to this task.
 
 * [main.dc][] - md5 5c146bdc240527609ffcf236d04be83b
 
@@ -203,11 +203,7 @@ This may be fairly difficult to see, but this computes an element in
 Pascal's triangle. You may know from high school that Pascal's triangle is also
 a list of binomial coefficients (or "combinations"), which can be computed as:
 
-$$\begin{align}
-{n \choose r} &= \frac{n!}{(n-r)!r!}
-              &= \frac{n(n-1)\cdot(n-r+1)(n-r)!}{(n-r)!r!}
-			  &= \frac{n(n-1)\cdot(n-r+1)}{r!}
-\end{align}$$
+![nCr=n!/(n-r)!r!](https://cloud.githubusercontent.com/assets/128854/11462584/8184895a-976a-11e5-9c2f-8d163a0f05e9.png)
 
 We can hence rewrite this as:
 ```python
