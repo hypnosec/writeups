@@ -320,6 +320,6 @@ def such(memes):
 ```
 
 ### Solution
-My full solution can be found in [main.py](main.py).
+My full solution can be found in [danklang.py](danklang.py).
 
 The flag is `9447{2992959519895850201020616334426464120987}`.
