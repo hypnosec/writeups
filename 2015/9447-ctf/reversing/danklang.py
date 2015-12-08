@@ -78,6 +78,7 @@ def bill(memes):
 
 if __name__ == '__main__':
 	for i in range(3, 13379447, 2000):
+		epicfail(i)
 		print(i)
 
 	print(epicfail(13379447))
